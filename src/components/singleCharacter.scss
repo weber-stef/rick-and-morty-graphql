@@ -1,12 +1,36 @@
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
 body{
+  background-color: #777;
   margin: 10px;
+}
+.container-results{
+  background-color: #ccc;
+text-align: center;
+}
+.container-search{
+  background-color: #333;
+}
+.container-main{
+
+}
+.oneCharacter{
+padding: 10px;
+padding-top: 20px;
+background-color: #ccc;
+  border: 1px solid black;
+  width:22%;
+  margin: 1%;
+  border-radius: 10px;
+
 }
 .active {
   border: 1px solid blue;
 }
-
+.pagination{
+  background-color: green;
+}
 img {
   max-width: 100px;
+  border: 1px solid black;
 }
