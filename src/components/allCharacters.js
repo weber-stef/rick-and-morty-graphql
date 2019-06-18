@@ -4,6 +4,8 @@ import { gql } from "apollo-boost";
 import { number } from "prop-types";
 import "./allCharacter.css";
 
+
+
 const allCharactersQuery = gql`
   query($page: Int!) {
     characters(page: $page) {
@@ -21,7 +23,11 @@ const allCharactersQuery = gql`
   }
 `;
 
-const allCharacters = ({ page, setPage }) => {
+const AllCharacters = () => {
+
+  // useState Hook
+  const [page, setPage] = useState(1);
+
   return (
     <>
       <Query variables={{ page }} query={allCharactersQuery}>
@@ -62,7 +68,7 @@ const allCharacters = ({ page, setPage }) => {
 const paginationButtons = (pageCount, setPage, currentPage) => {
   const pageButtons = [];
   console.log(currentPage);
-  for (let i = 1; i < pageCount; i++) {
+  for (let i = 1; i <= pageCount; i++) {
     pageButtons.push(
       <button
         className={currentPage === i ? "active" : ""}
@@ -77,8 +83,8 @@ const paginationButtons = (pageCount, setPage, currentPage) => {
   return pageButtons;
 };
 
-allCharacters.propTypes = {
+AllCharacters.propTypes = {
   page: number.isRequired
 };
 
-export default allCharacters;
+export default AllCharacters;

@@ -1,20 +1,25 @@
-import React, { useState } from "react";
-import ApolloClient, { gql } from "apollo-boost";
+import React from "react";
+//Apollo GraphQL Client
+import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
+import SingleCharacter from "./components/singleCharacter";
+//Our component showing all the characters
+// import AllCharacters from "./components/allCharacters";
 
-import AllCharacters from "./components/allCharacters";
 
+//Apollo client init
 const client = new ApolloClient({
   uri: "https://rickandmortyapi.com/graphql/"
 });
 
+//Functional Component APP
 function App() {
-  const [page, setPage] = useState(1);
 
   return (
     <ApolloProvider client={client}>
       <div className="App">
-        <AllCharacters page={page} setPage={setPage} />
+        {/* <AllCharacters /> */}
+        <SingleCharacter />
       </div>
     </ApolloProvider>
   );
